@@ -2,5 +2,13 @@
   "name": "type-orm-laith",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc -w",
+    "dev:2": "nodemon dist/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "tsconfig.json": "^1.0.10"
+  }
 }
