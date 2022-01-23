@@ -36,7 +36,7 @@ __decorate([
         unique: true,
         length: 10,
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Banker.prototype, "employee_number", void 0);
 __decorate([
     (0, typeorm_1.Column)({ unique: true, length: 10 }),

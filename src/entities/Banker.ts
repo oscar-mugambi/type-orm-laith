@@ -27,7 +27,7 @@ export class Banker extends BaseEntity {
     unique: true,
     length: 10,
   })
-  employee_number: number;
+  employee_number: string;
 
   @Column({ unique: true, length: 10 })
   card_number: string;
