@@ -1,7 +1,17 @@
-import { BaseEntity, Column, Entity } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('client')
 export class Client extends BaseEntity {
+  @PrimaryColumn()
+  id: number;
+
   @Column()
   first_name: string;
 
@@ -41,4 +51,10 @@ export class Client extends BaseEntity {
     default: [],
   })
   family_members: string;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
 }

@@ -14,6 +14,10 @@ const typeorm_1 = require("typeorm");
 let Client = class Client extends typeorm_1.BaseEntity {
 };
 __decorate([
+    (0, typeorm_1.PrimaryColumn)(),
+    __metadata("design:type", Number)
+], Client.prototype, "id", void 0);
+__decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Client.prototype, "first_name", void 0);
@@ -58,6 +62,14 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Client.prototype, "family_members", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Client.prototype, "created_at", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Client.prototype, "updated_at", void 0);
 Client = __decorate([
     (0, typeorm_1.Entity)('client')
 ], Client);
