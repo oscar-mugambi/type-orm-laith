@@ -1,9 +1,14 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
 const typeorm_1 = require("typeorm");
 const Banker_1 = require("./entities/Banker");
 const Client_1 = require("./entities/Client");
 const Transaction_1 = require("./entities/Transaction");
+const app = (0, express_1.default)();
 const main = async () => {
     try {
         await (0, typeorm_1.createConnection)({
@@ -17,6 +22,10 @@ const main = async () => {
             synchronize: true,
         });
         console.log('connected to postgres');
+        app.use(express_1.default.json());
+        app.listen(5000, () => {
+            console.log('connected on port 5000');
+        });
     }
     catch (error) {
         console.log('unable to connect to postgres');
