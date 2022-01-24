@@ -3,6 +3,7 @@ import { createConnection } from 'typeorm';
 import { Banker } from './entities/Banker';
 import { Client } from './entities/Client';
 import { Transaction } from './entities/Transaction';
+import { createClientRouter } from './routes/create_client';
 
 const app = express();
 
@@ -21,6 +22,7 @@ const main = async () => {
 
     console.log('connected to postgres');
     app.use(express.json());
+    app.use(createClientRouter);
 
     app.listen(5000, () => {
       console.log('connected on port 5000');

@@ -1,0 +1,1 @@
+{"version":3,"file":"create_client.js","sourceRoot":"","sources":["../../src/routes/create_client.ts"],"names":[],"mappings":";;;;;;AAAA,sDAA8B;AAE9B,MAAM,MAAM,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAC;AAMb,oCAAkB;AAJrC,MAAM,CAAC,IAAI,CAAC,aAAa,EAAE,CAAC,GAAG,EAAE,GAAG,EAAE,EAAE;IACtC,GAAG,CAAC,IAAI,CAAC,OAAO,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC"}
