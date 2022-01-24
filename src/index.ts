@@ -4,6 +4,7 @@ import { Banker } from './entities/Banker';
 import { Client } from './entities/Client';
 import { Transaction } from './entities/Transaction';
 import { createClientRouter } from './routes/create_client';
+import { createBankerRouter } from './routes/create_banker';
 
 const app = express();
 
@@ -23,6 +24,7 @@ const main = async () => {
     console.log('connected to postgres');
     app.use(express.json());
     app.use(createClientRouter);
+    app.use(createBankerRouter);
 
     app.listen(5000, () => {
       console.log('connected on port 5000');

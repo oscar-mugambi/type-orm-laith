@@ -9,6 +9,7 @@ const Banker_1 = require("./entities/Banker");
 const Client_1 = require("./entities/Client");
 const Transaction_1 = require("./entities/Transaction");
 const create_client_1 = require("./routes/create_client");
+const create_banker_1 = require("./routes/create_banker");
 const app = (0, express_1.default)();
 const main = async () => {
     try {
@@ -25,6 +26,7 @@ const main = async () => {
         console.log('connected to postgres');
         app.use(express_1.default.json());
         app.use(create_client_1.createClientRouter);
+        app.use(create_banker_1.createBankerRouter);
         app.listen(5000, () => {
             console.log('connected on port 5000');
         });
