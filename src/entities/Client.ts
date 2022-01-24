@@ -34,7 +34,7 @@ export class Client extends Person {
   @OneToMany(() => Transaction, (transaction) => transaction.client)
   transactions: Transaction[];
 
-  @ManyToMany(() => Banker)
+  @ManyToMany(() => Banker, { cascade: true })
   bankers: Banker[];
 
   @CreateDateColumn()

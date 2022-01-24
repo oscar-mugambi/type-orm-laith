@@ -48,7 +48,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Client.prototype, "transactions", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(() => Banker_1.Banker),
+    (0, typeorm_1.ManyToMany)(() => Banker_1.Banker, { cascade: true }),
     __metadata("design:type", Array)
 ], Client.prototype, "bankers", void 0);
 __decorate([
