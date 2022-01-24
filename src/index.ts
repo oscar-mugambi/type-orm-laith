@@ -7,6 +7,7 @@ import { createClientRouter } from './routes/create_client';
 import { createBankerRouter } from './routes/create_banker';
 import { createTransactionRouter } from './routes/create_transaction';
 import { connectBankerToClient } from './routes/connect_banker_to_client';
+import { deleteClientRouter } from './routes/delete_clients';
 
 const app = express();
 
@@ -29,6 +30,7 @@ const main = async () => {
     app.use(createBankerRouter);
     app.use(createTransactionRouter);
     app.use(connectBankerToClient);
+    app.use(deleteClientRouter);
 
     app.listen(5000, () => {
       console.log('connected on port 5000');
