@@ -9,11 +9,19 @@ router.put('/api/banker/:bankerId/client/:clientId', async (req, res) => {
   const client = await Client.findOne(parseInt(clientId));
   const banker = await Banker.findOne(parseInt(bankerId));
 
-  if (!banker && !client) {
+  if (!banker || !client) {
     return res.json({
       msg: 'Banker or Client not found',
     });
   }
+
+  banker.clients = [client];
+
+  await banker.save();
+
+  return res.json({
+    msg: 'Banker connected to client',
+  });
 });
 
 export { router as connectBankerToClient };

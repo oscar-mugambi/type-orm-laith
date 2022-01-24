@@ -11,6 +11,7 @@ const Transaction_1 = require("./entities/Transaction");
 const create_client_1 = require("./routes/create_client");
 const create_banker_1 = require("./routes/create_banker");
 const create_transaction_1 = require("./routes/create_transaction");
+const connect_banker_to_client_1 = require("./routes/connect_banker_to_client");
 const app = (0, express_1.default)();
 const main = async () => {
     try {
@@ -29,6 +30,7 @@ const main = async () => {
         app.use(create_client_1.createClientRouter);
         app.use(create_banker_1.createBankerRouter);
         app.use(create_transaction_1.createTransactionRouter);
+        app.use(connect_banker_to_client_1.connectBankerToClient);
         app.listen(5000, () => {
             console.log('connected on port 5000');
         });
