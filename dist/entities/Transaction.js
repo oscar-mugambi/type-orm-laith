@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Transaction = exports.TransactionTypes = void 0;
 const typeorm_1 = require("typeorm");
+const Client_1 = require("./Client");
 var TransactionTypes;
 (function (TransactionTypes) {
     TransactionTypes["DEPOSIT"] = "deposit";
@@ -33,8 +34,15 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'numeric' }),
     __metadata("design:type", Number)
 ], Transaction.prototype, "amount", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => Client_1.Client, (client) => client.transactions),
+    (0, typeorm_1.JoinColumn)({
+        name: 'client_id',
+    }),
+    __metadata("design:type", Client_1.Client)
+], Transaction.prototype, "client", void 0);
 Transaction = __decorate([
-    (0, typeorm_1.Entity)('transaction')
+    (0, typeorm_1.Entity)('transactions')
 ], Transaction);
 exports.Transaction = Transaction;
 //# sourceMappingURL=Transaction.js.map

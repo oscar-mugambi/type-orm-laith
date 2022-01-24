@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Client = void 0;
 const typeorm_1 = require("typeorm");
+const Banker_1 = require("./Banker");
+const Transaction_1 = require("./Transaction");
 const Person_1 = require("./utils/Person");
 let Client = class Client extends Person_1.Person {
 };
@@ -41,6 +43,14 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Client.prototype, "family_members", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Transaction_1.Transaction, (transaction) => transaction.client),
+    __metadata("design:type", Array)
+], Client.prototype, "transactions", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => Banker_1.Banker),
+    __metadata("design:type", Array)
+], Client.prototype, "bankers", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)

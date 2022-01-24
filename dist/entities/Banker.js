@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Banker = void 0;
 const typeorm_1 = require("typeorm");
+const Client_1 = require("./Client");
 const Person_1 = require("./utils/Person");
 let Banker = class Banker extends Person_1.Person {
 };
@@ -25,6 +26,21 @@ __decorate([
     (0, typeorm_1.Column)({ unique: true, length: 10 }),
     __metadata("design:type", String)
 ], Banker.prototype, "card_number", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => Client_1.Client),
+    (0, typeorm_1.JoinTable)({
+        name: 'bankers_clients',
+        joinColumn: {
+            name: 'banker',
+            referencedColumnName: 'id',
+        },
+        inverseJoinColumn: {
+            name: 'client',
+            referencedColumnName: 'id',
+        },
+    }),
+    __metadata("design:type", Array)
+], Banker.prototype, "clients", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
