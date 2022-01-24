@@ -1,5 +1,7 @@
 import { createConnection } from 'typeorm';
+import { Banker } from './entities/Banker';
 import { Client } from './entities/Client';
+import { Transaction } from './entities/Transaction';
 
 const main = async () => {
   try {
@@ -10,7 +12,7 @@ const main = async () => {
       username: 'oscar',
       password: 'password',
       database: 'oscar',
-      entities: [Client],
+      entities: [Client, Banker, Transaction],
       synchronize: true,
     });
 
@@ -21,4 +23,4 @@ const main = async () => {
   }
 };
 
-main();
+main().catch((error) => console.log(error));

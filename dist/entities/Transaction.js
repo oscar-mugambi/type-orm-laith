@@ -9,32 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Banker = void 0;
+exports.Transaction = exports.TransactionTypes = void 0;
 const typeorm_1 = require("typeorm");
-const Person_1 = require("./utils/Person");
-let Banker = class Banker extends Person_1.Person {
+var TransactionTypes;
+(function (TransactionTypes) {
+    TransactionTypes["DEPOSIT"] = "deposit";
+    TransactionTypes["WITHDRAWAL"] = "withdraw";
+})(TransactionTypes = exports.TransactionTypes || (exports.TransactionTypes = {}));
+let Transaction = class Transaction extends typeorm_1.BaseEntity {
 };
 __decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Transaction.prototype, "id", void 0);
+__decorate([
     (0, typeorm_1.Column)({
-        unique: true,
-        length: 10,
+        type: 'enum',
+        enum: TransactionTypes,
     }),
     __metadata("design:type", String)
-], Banker.prototype, "employee_number", void 0);
+], Transaction.prototype, "type", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ unique: true, length: 10 }),
-    __metadata("design:type", String)
-], Banker.prototype, "card_number", void 0);
-__decorate([
-    (0, typeorm_1.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Banker.prototype, "created_at", void 0);
-__decorate([
-    (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Banker.prototype, "updated_at", void 0);
-Banker = __decorate([
-    (0, typeorm_1.Entity)('banker')
-], Banker);
-exports.Banker = Banker;
-//# sourceMappingURL=Banker.js.map
+    (0, typeorm_1.Column)({ type: 'numeric' }),
+    __metadata("design:type", Number)
+], Transaction.prototype, "amount", void 0);
+Transaction = __decorate([
+    (0, typeorm_1.Entity)('transaction')
+], Transaction);
+exports.Transaction = Transaction;
+//# sourceMappingURL=Transaction.js.map

@@ -9,48 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Client = void 0;
+exports.Person = void 0;
 const typeorm_1 = require("typeorm");
-const Person_1 = require("./utils/Person");
-let Client = class Client extends Person_1.Person {
+let Person = class Person extends typeorm_1.BaseEntity {
 };
 __decorate([
-    (0, typeorm_1.Column)({
-        type: 'numeric',
-    }),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Client.prototype, "balance", void 0);
+], Person.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Person.prototype, "first_name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Person.prototype, "last_name", void 0);
 __decorate([
     (0, typeorm_1.Column)({
-        default: true,
-        name: 'active',
-    }),
-    __metadata("design:type", Boolean)
-], Client.prototype, "is_active", void 0);
-__decorate([
-    (0, typeorm_1.Column)({
-        type: 'simple-json',
-        nullable: true,
-    }),
-    __metadata("design:type", Object)
-], Client.prototype, "additional_info", void 0);
-__decorate([
-    (0, typeorm_1.Column)({
-        type: 'simple-array',
-        default: [],
+        unique: true,
     }),
     __metadata("design:type", String)
-], Client.prototype, "family_members", void 0);
+], Person.prototype, "email", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Client.prototype, "created_at", void 0);
-__decorate([
-    (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Client.prototype, "updated_at", void 0);
-Client = __decorate([
-    (0, typeorm_1.Entity)('client')
-], Client);
-exports.Client = Client;
-//# sourceMappingURL=Client.js.map
+    (0, typeorm_1.Column)({ unique: true, length: 10 }),
+    __metadata("design:type", String)
+], Person.prototype, "card_number", void 0);
+Person = __decorate([
+    (0, typeorm_1.Entity)()
+], Person);
+exports.Person = Person;
+//# sourceMappingURL=Person.js.map
